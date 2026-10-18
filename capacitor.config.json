@@ -3,6 +3,8 @@
   "appName": "Himachan",
   "webDir": "dist",
   "server": {
+    "url": "https://little-moon-eight.vercel.app",
+    "cleartext": false,
     "androidScheme": "https"
   }
 }
