@@ -23,6 +23,9 @@ const Home = () => {
           <div>
             <h1>Hi, {user.name} 👋</h1>
             <p className={styles.subtitle}>Welcome to your journey</p>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', background: 'rgba(139, 92, 246, 0.12)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '999px', fontSize: '11px', fontWeight: '600', color: '#8B5CF6', marginTop: '6px' }}>
+              ✨ Live Update Active! 🚀
+            </div>
           </div>
         </div>
         

@@ -51,7 +51,7 @@ const Onboarding = () => {
               <Sparkles size={48} color="var(--color-primary)" />
             </div>
             <h1 className={styles.title}>Welcome to Your Birthday Journey My Little Moon 🎂</h1>
-            <p className={styles.subtitle}>This app was made just for you, with love.</p>
+            <p className={styles.subtitle}>This app was made just for you, with love. ✨ Live Updates Active! 🚀</p>
           </div>
         )}
 
