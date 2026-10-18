@@ -1,0 +1,28 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFF3E0;
+}
+
+.title {
+  margin-bottom: 20px;
+  color: var(--color-text-dark);
+}
+
+.svg {
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.line {
+  animation: draw 0.5s linear forwards;
+}
+
+@keyframes draw {
+  from { stroke-dasharray: 0 1000; }
+  to { stroke-dasharray: 1000 0; }
+}

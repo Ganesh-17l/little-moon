@@ -1,0 +1,54 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #E3F2FD;
+}
+
+.title {
+  margin-bottom: 40px;
+  color: var(--color-primary-dark);
+  font-size: 20px;
+}
+
+.wordContainer {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.letter {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--color-text-dark);
+  box-shadow: 0 4px 0 #cbd5e1;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.letter:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.selected {
+  border-color: var(--color-primary);
+  background: #E0F7FA;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 0 var(--color-primary-light);
+}
+
+.progress {
+  color: var(--color-text-light);
+  font-weight: 500;
+}

@@ -1,0 +1,197 @@
+.container {
+  min-height: 100vh;
+  background: var(--color-white);
+  padding-bottom: 80px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-md);
+  z-index: 10;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.tabs {
+  display: flex;
+  background: #f5f5f5;
+  padding: 4px;
+  border-radius: var(--radius-full);
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--color-text-light);
+  transition: all 0.2s;
+}
+
+.activeTab {
+  background: var(--color-white);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.content {
+  padding: var(--spacing-lg);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: var(--spacing-xl);
+}
+
+.line {
+  position: absolute;
+  left: -19px;
+  top: 8px;
+  bottom: -8px;
+  width: 2px;
+  background: #eee;
+}
+
+.timelineItem:last-child .line {
+  display: none;
+}
+
+.dot {
+  position: absolute;
+  left: -24px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.yearCard {
+  background: #f8f9fa;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+.yearLabel {
+  font-size: 12px;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.yearCard h3 {
+  margin: 4px 0 8px;
+  font-size: 16px;
+}
+
+.yearCard p {
+  font-style: italic;
+  color: var(--color-text-light);
+  font-size: 14px;
+}
+
+/* Messages */
+.messagesGrid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.messageCard {
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #eee;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.messageCard:active {
+  transform: scale(0.98);
+}
+
+.specialCard {
+  background: linear-gradient(135deg, #fff 0%, #fff0f0 100%);
+  border-color: var(--color-secondary);
+}
+
+.sender {
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-dark);
+}
+
+.specialCard .sender {
+  color: var(--color-secondary);
+}
+
+.preview {
+  color: var(--color-text-light);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: var(--spacing-lg);
+}
+
+.modal {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.letterPaper {
+  background: #fff;
+  padding: var(--spacing-xl);
+  border-radius: 2px;
+  box-shadow: var(--shadow-lg);
+  background-image: linear-gradient(#f1f1f1 1px, transparent 1px);
+  background-size: 100% 24px;
+  line-height: 24px;
+}
+
+.letterBody {
+  margin: var(--spacing-lg) 0;
+  font-family: 'Inter', serif; /* Or a handwriting font */
+  white-space: pre-wrap;
+}
+
+.signature {
+  text-align: right;
+  font-weight: 600;
+  font-style: italic;
+}

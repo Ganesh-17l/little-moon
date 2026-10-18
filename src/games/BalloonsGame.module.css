@@ -1,0 +1,56 @@
+.container {
+  height: 100%;
+  position: relative;
+  background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.counter {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Larger hit area wrapper */
+.balloonWrapper {
+  position: absolute;
+  width: 100px; /* Big hit area */
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  /* Debug border: border: 1px solid red; */
+}
+
+.balloon {
+  width: 70px;
+  height: 85px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 15px;
+  height: 25px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.string {
+  width: 2px;
+  height: 30px;
+  background: rgba(0,0,0,0.3);
+  margin-top: -2px;
+}

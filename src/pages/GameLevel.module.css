@@ -1,0 +1,26 @@
+.container {
+  height: 100vh;
+  background: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.exitBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  color: var(--color-text-dark);
+}
+
+.gameArea {
+  height: 100%;
+  width: 100%;
+}

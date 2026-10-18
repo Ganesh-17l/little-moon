@@ -1,0 +1,8 @@
+{
+  "appId": "com.littlemoon.birthday",
+  "appName": "Himachan",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

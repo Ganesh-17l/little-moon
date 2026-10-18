@@ -1,0 +1,2 @@
+C:\Program Files\Common Files\Oracle\Java\javapath\java.exe
+C:\Program Files\Java\jdk-24\bin\java.exe

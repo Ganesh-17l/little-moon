@@ -1,0 +1,52 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F3E5F5;
+  cursor: pointer;
+}
+
+.instruction {
+  margin-bottom: 40px;
+  color: var(--color-text-dark);
+}
+
+.visualizer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  height: 100px;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 20px;
+  height: 40px;
+  background: #E1BEE7;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.active {
+  height: 100px;
+  background: #9C27B0;
+}
+
+.target {
+  margin-bottom: 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  transition: all 0.2s;
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-primary);
+}
