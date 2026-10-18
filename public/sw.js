@@ -1,13 +1,13 @@
 /* Little Moon Service Worker */
-const CACHE_VERSION = 'v1.0.1';
+const CACHE_VERSION = 'v1.0.2';
 const CACHE_NAME = `little-moon-${CACHE_VERSION}`;
 
 const PRECACHE_ASSETS = [
-  './',
-  './index.html',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png',
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
 ];
 
 // Install: pre-cache critical app shell without calling skipWaiting()
