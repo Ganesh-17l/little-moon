@@ -1,36 +1,64 @@
 import React from 'react';
-import { Compass, Sparkles, PlusCircle } from 'lucide-react';
+import { Layers, Image, Cpu } from 'lucide-react';
 import styles from './Explore.module.css';
 
 const Explore = () => {
   return (
-    <div className={`${styles.container} animate-fade-in`}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Explore Canvas</h1>
-        <p className={styles.subtitle}>A clean, modular foundation ready for your new features.</p>
+    <div className={`${styles.container} animate-apple-in`}>
+      <header className={styles.topHeader}>
+        <span className={styles.headerDate}>Discovery</span>
+        <h1 className={styles.mainTitle}>Modular Canvas</h1>
+        <p className={styles.subtitle}>
+          A blank, structured framework prepared for your upcoming feature implementations.
+        </p>
       </header>
 
-      <div className={styles.placeholderCard}>
-        <div className={styles.iconCircle}>
-          <Compass size={28} />
-        </div>
-        <div className={styles.cardTitle}>Ready for New Modules</div>
-        <p className={styles.cardText}>
-          The old birthday games and assets have been wiped clean. Your workspace is fresh, lightweight, and ready for whatever you build next.
+      {/* Main Canvas Card */}
+      <section className={styles.canvasCard}>
+        <h3>Ready for Custom Modules</h3>
+        <p>
+          All legacy components and assets have been stripped. The architecture now provides clean routing, state persistence, and responsive layouts designed to scale with your ideas.
         </p>
-      </div>
-
-      <div className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '14px' }}>
-        <div style={{ color: '#EC4899' }}>
-          <Sparkles size={24} />
+        <div className={styles.noteContainer}>
+          <span className={styles.noteTitle}>Clean State</span>
+          <span className={styles.noteText}>
+            No legacy dependencies or hardcoded data remain. New views can be added directly into the router.
+          </span>
         </div>
-        <div>
-          <div style={{ fontSize: '15px', fontWeight: '600' }}>Custom Logo Ready</div>
-          <div style={{ fontSize: '12.5px', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-            Upload your new logo assets to <code>assets/icon.png</code> and <code>public/</code> when you are ready.
+      </section>
+
+      {/* Spec Rows */}
+      <section className={styles.grid}>
+        <div className={styles.featureCard}>
+          <Image size={20} className={styles.featureIcon} strokeWidth={1.8} />
+          <div className={styles.featureContent}>
+            <div className={styles.featureTitle}>Asset Slot Ready</div>
+            <div className={styles.featureDesc}>
+              Ready for your custom icon file at assets/icon.png.
+            </div>
           </div>
         </div>
-      </div>
+
+        <div className={styles.featureCard}>
+          <Cpu size={20} className={styles.featureIcon} strokeWidth={1.8} />
+          <div className={styles.featureContent}>
+            <div className={styles.featureTitle}>Performance Baseline</div>
+            <div className={styles.featureDesc}>
+              Lightweight bundle with sub-second initialization and native viewport handling.
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.featureCard}>
+          <Layers size={20} className={styles.featureIcon} strokeWidth={1.8} />
+          <div className={styles.featureContent}>
+            <div className={styles.featureTitle}>Component Hierarchy</div>
+            <div className={styles.featureDesc}>
+              Apple-grade grouped surfaces and typography tokens defined in the root stylesheet.
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

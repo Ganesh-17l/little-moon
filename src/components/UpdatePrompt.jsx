@@ -40,10 +40,7 @@ const UpdatePrompt = () => {
   return (
     <aside className={styles.promptContainer} aria-label="App update notification">
       <div className={styles.promptCard} role="status" aria-live="polite">
-        <div className={styles.infoSection}>
-          <span className={styles.sparkleIcon} aria-hidden="true">✨</span>
-          <span className={styles.titleText}>Update available</span>
-        </div>
+        <span className={styles.titleText}>Update Available</span>
         <div className={styles.actionsSection}>
           <button
             type="button"

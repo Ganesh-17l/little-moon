@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Compass, Settings } from 'lucide-react';
+import { Home, Compass, Sliders } from 'lucide-react';
 import styles from './BottomNav.module.css';
 
 const BottomNav = () => {
   const navItems = [
     { path: '/', icon: Home, label: 'Home' },
     { path: '/explore', icon: Compass, label: 'Explore' },
-    { path: '/settings', icon: Settings, label: 'Settings' },
+    { path: '/settings', icon: Sliders, label: 'Settings' },
   ];
 
   return (
-    <div className={styles.navContainer}>
-      <nav className={styles.nav} aria-label="Main Navigation">
+    <aside className={styles.navContainer} aria-label="Bottom Navigation">
+      <nav className={styles.nav}>
         {navItems.map(({ path, icon: Icon, label }) => (
           <NavLink
             key={path}
@@ -21,12 +21,12 @@ const BottomNav = () => {
               `${styles.navItem} ${isActive ? styles.active : ''}`
             }
           >
-            <Icon size={20} strokeWidth={2.2} />
+            <Icon size={17} strokeWidth={2} />
             <span>{label}</span>
           </NavLink>
         ))}
       </nav>
-    </div>
+    </aside>
   );
 };
 
