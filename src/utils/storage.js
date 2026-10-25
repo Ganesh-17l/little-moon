@@ -1,23 +1,17 @@
-const STORAGE_KEY = 'little_moon_data_v1';
+const STORAGE_KEY = 'little_moon_v2';
 
 const initialData = {
   user: {
-    name: '',
-    avatar: null,
-    isOnboardingComplete: false,
-  },
-  progress: {
-    currentLevel: 1,
-    completedLevels: [], // Array of level IDs
-    unlockedGifts: [],   // Array of gift IDs
+    name: 'Little Moon',
+    avatar: '🌙',
+    isSetupComplete: true,
   },
   settings: {
-    theme: 'default',
+    theme: 'dark',
     soundEnabled: true,
+    notificationsEnabled: false,
   },
-  // Admin configurable data
-  gifts: {}, // Map of levelId -> { imageUrl, caption }
-  messages: [], // Array of message objects
+  modules: [],
 };
 
 export const storage = {
@@ -39,16 +33,15 @@ export const storage = {
     }
   },
 
-  // Helper to merge updates
   update: (updates) => {
     const current = storage.get();
     const newData = { ...current, ...updates };
     storage.save(newData);
     return newData;
   },
-  
+
   reset: () => {
     storage.save(initialData);
     return initialData;
-  }
+  },
 };

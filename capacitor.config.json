@@ -1,10 +1,8 @@
 {
-  "appId": "com.littlemoon.birthday",
-  "appName": "Himachan",
+  "appId": "com.littlemoon.app",
+  "appName": "Little Moon",
   "webDir": "dist",
   "server": {
-    "url": "https://little-moon-eight.vercel.app",
-    "cleartext": false,
     "androidScheme": "https"
   }
 }

@@ -42,7 +42,7 @@ export function registerServiceWorker() {
 
   window.addEventListener('load', () => {
     // Determine SW URL relative to current location
-    const swUrl = '/sw.js';
+    const swUrl = './sw.js';
 
     navigator.serviceWorker
       .register(swUrl)

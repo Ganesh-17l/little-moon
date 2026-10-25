@@ -1,94 +1,68 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '../context/AppContext';
-import ProgressRing from '../components/ProgressRing';
-import DailySurprise from '../components/DailySurprise';
-import { Play, Gift, Clock } from 'lucide-react';
+import { Sparkles, Moon, Layers, Zap, ArrowRight, ShieldCheck } from 'lucide-react';
 import styles from './Home.module.css';
 
 const Home = () => {
-  const { state } = useApp();
   const navigate = useNavigate();
-  const { user, progress } = state;
-
-  const nextLevel = progress.currentLevel;
-  const isFinished = progress.completedLevels.length >= 18;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} animate-fade-in`}>
       {/* Hero Header */}
       <header className={styles.hero}>
-        <div className={styles.greeting}>
-          <div className={styles.avatar}>{user.avatar}</div>
-          <div>
-            <h1>Hi, {user.name} 👋</h1>
-            <p className={styles.subtitle}>Welcome to your journey</p>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', background: 'rgba(139, 92, 246, 0.12)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '999px', fontSize: '11px', fontWeight: '600', color: '#8B5CF6', marginTop: '6px' }}>
-              ✨ Live Update Active! 🚀
-            </div>
-          </div>
+        <div className={styles.logoBadge}>
+          <Moon size={14} fill="currentColor" />
+          <span>Little Moon v2.0</span>
         </div>
-        
-        <div className={styles.progressSection}>
-          <ProgressRing 
-            radius={60} 
-            stroke={8} 
-            progress={progress.completedLevels.length} 
-            total={18} 
-          />
+        <h1 className={styles.title}>Your Digital Universe Awaits</h1>
+        <p className={styles.subtitle}>
+          Clean, modern, and built from the ground up. Ready for your next big vision.
+        </p>
+
+        <div className={styles.statusRow}>
+          <div className={styles.statusChip}>
+            <span className={styles.statusDot} />
+            <span>Standalone APK Ready</span>
+          </div>
+          <div className={styles.statusChip}>
+            <Sparkles size={12} color="#A78BFA" />
+            <span>PWA Enabled</span>
+          </div>
         </div>
       </header>
 
-      <div className={styles.mainContent}>
-        {/* Main CTA */}
-        <div className={styles.ctaCard}>
-          <h2>{isFinished ? "Journey Complete!" : `Level ${nextLevel}`}</h2>
-          <p>{isFinished ? "You've unlocked everything!" : "Ready for your next adventure?"}</p>
-          
-          <button 
-            className="btn-primary w-full"
-            onClick={() => navigate('/levels')}
-            style={{ marginTop: '16px' }}
-          >
-            {isFinished ? 'Replay Levels' : 'Continue Journey'}
-            <Play size={20} fill="currentColor" />
+      {/* Feature Grid */}
+      <section className={styles.grid}>
+        <div className={`${styles.card} ${styles.fullCard}`} onClick={() => navigate('/explore')}>
+          <div className={styles.cardIcon}>
+            <Layers size={22} />
+          </div>
+          <div className={styles.cardTitle}>Explore Modules</div>
+          <div className={styles.cardDesc}>
+            Discover features and new modular components ready to expand.
+          </div>
+          <button className="btn-primary" style={{ marginTop: '8px' }}>
+            <span>Explore Canvas</span>
+            <ArrowRight size={16} />
           </button>
         </div>
 
-        {/* Daily Surprise */}
-        <DailySurprise />
-
-        {/* Shortcuts */}
-        <div className={styles.shortcuts}>
-          <button 
-            className={`${styles.shortcutBtn} ${isFinished ? styles.unlocked : ''}`} 
-            onClick={() => {
-              if (isFinished) navigate('/cake');
-              else alert("Complete all 18 levels to unlock the Birthday Cake!");
-            }}
-            style={{ opacity: isFinished ? 1 : 0.7 }}
-          >
-            <div className={`${styles.iconBox} ${isFinished ? styles.gold : styles.gray}`}>
-              <span style={{ fontSize: '24px' }}>{isFinished ? '🎂' : '🔒'}</span>
-            </div>
-            <span>{isFinished ? 'Cake' : 'Locked'}</span>
-          </button>
-          
-          <button className={styles.shortcutBtn} onClick={() => navigate('/gallery')}>
-            <div className={`${styles.iconBox} ${styles.pink}`}>
-              <Gift size={24} />
-            </div>
-            <span>Gifts</span>
-          </button>
-          
-          <button className={styles.shortcutBtn} onClick={() => navigate('/memories')}>
-            <div className={`${styles.iconBox} ${styles.lavender}`}>
-              <Clock size={24} />
-            </div>
-            <span>Memories</span>
-          </button>
+        <div className={styles.card}>
+          <div className={styles.cardIcon}>
+            <Zap size={20} />
+          </div>
+          <div className={styles.cardTitle}>Ultra Fast</div>
+          <div className={styles.cardDesc}>Zero bloat, instant local performance.</div>
         </div>
-      </div>
+
+        <div className={styles.card}>
+          <div className={styles.cardIcon}>
+            <ShieldCheck size={20} />
+          </div>
+          <div className={styles.cardTitle}>Pure Offline</div>
+          <div className={styles.cardDesc}>Runs natively inside your device.</div>
+        </div>
+      </section>
     </div>
   );
 };
