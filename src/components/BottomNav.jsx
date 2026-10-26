@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Compass, Sliders } from 'lucide-react';
+import { Home, Sparkles, Sliders } from 'lucide-react';
 import styles from './BottomNav.module.css';
 
 const BottomNav = () => {
   const navItems = [
     { path: '/', icon: Home, label: 'Home' },
-    { path: '/explore', icon: Compass, label: 'Explore' },
+    { path: '/explore', icon: Sparkles, label: 'Studio' },
     { path: '/settings', icon: Sliders, label: 'Settings' },
   ];
 

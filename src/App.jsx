@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { AuthProvider } from './context/AuthContext';
+import AuthGate from './components/AuthGate';
 import Layout from './components/Layout';
 import UpdatePrompt from './components/UpdatePrompt';
 import Home from './pages/Home';
@@ -28,7 +29,9 @@ function App() {
       <AppProvider>
         <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <UpdatePrompt />
-          <AppRoutes />
+          <AuthGate>
+            <AppRoutes />
+          </AuthGate>
         </Router>
       </AppProvider>
     </AuthProvider>

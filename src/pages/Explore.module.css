@@ -28,94 +28,88 @@
 }
 
 .subtitle {
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--color-text-secondary);
   line-height: 1.5;
   margin-top: 4px;
 }
 
-.canvasCard {
-  background: var(--color-surface);
+.viewportCard {
+  background: radial-gradient(circle at 50% 40%, rgba(245, 243, 232, 0.95) 0%, rgba(229, 225, 205, 0.6) 100%);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: 28px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
-}
-
-.canvasCard h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--color-midnight);
-  letter-spacing: -0.02em;
-}
-
-.canvasCard p {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  line-height: 1.55;
-}
-
-.noteContainer {
-  background: rgba(40, 43, 74, 0.04);
-  border-left: 3px solid var(--color-midnight);
-  padding: 14px 16px;
-  border-radius: var(--radius-xs);
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
-.noteTitle {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-midnight);
+.viewportFooter {
+  padding: 10px 16px;
+  background: rgba(40, 43, 74, 0.04);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.noteText {
-  font-size: 12.5px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
+.footerHint {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
 }
 
-.grid {
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.groupCaption {
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+  padding-left: 6px;
+}
+
+.chipGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
-.featureCard {
+.controlChip {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  box-shadow: var(--shadow-sm);
-}
-
-.featureIcon {
-  color: var(--color-midnight);
-  margin-top: 2px;
-}
-
-.featureContent {
+  padding: 12px 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
-}
-
-.featureTitle {
-  font-size: 15px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--color-midnight);
+  transition: all var(--transition-fast);
 }
 
-.featureDesc {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.45;
+.controlChip:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-midnight);
+}
+
+.controlChipActive {
+  background: var(--color-midnight);
+  color: var(--color-vanilla);
+  border-color: var(--color-midnight);
+  box-shadow: 0 4px 12px rgba(40, 43, 74, 0.18);
+}
+
+.chipIcon {
+  font-size: 12px;
+  letter-spacing: -0.05em;
+  font-weight: 700;
 }

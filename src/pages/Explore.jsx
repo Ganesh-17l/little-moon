@@ -1,62 +1,88 @@
-import React from 'react';
-import { Layers, Image, Cpu } from 'lucide-react';
+import React, { useState } from 'react';
+import CompanionScene from '../components/Companion3D/CompanionScene';
 import styles from './Explore.module.css';
 
+const EXPRESSION_LIST = [
+  { key: 'neutral', name: 'Neutral', icon: '● ●' },
+  { key: 'happy', name: 'Happy', icon: '∩ ∩' },
+  { key: 'love', name: 'Heart Eyes', icon: '♥ ♥' },
+  { key: 'curious', name: 'Curious', icon: '● ◕' },
+  { key: 'content', name: 'Content', icon: '◡ ◡' },
+  { key: 'laugh', name: 'Laughing', icon: '⌒ ⌒' },
+];
+
+const ANIMATION_LIST = [
+  { key: 'floatIdle', name: 'Float Idle' },
+  { key: 'hover', name: 'Hover' },
+  { key: 'greeting', name: 'Greeting' },
+  { key: 'excitedBounce', name: 'Bounce' },
+  { key: 'tiltLeft', name: 'Tilt Left' },
+  { key: 'tiltRight', name: 'Tilt Right' },
+];
+
 const Explore = () => {
+  const [activeExpr, setActiveExpr] = useState('neutral');
+  const [activeAnim, setActiveAnim] = useState('floatIdle');
+
   return (
     <div className={`${styles.container} animate-apple-in`}>
       <header className={styles.topHeader}>
-        <span className={styles.headerDate}>Discovery</span>
-        <h1 className={styles.mainTitle}>Modular Canvas</h1>
+        <span className={styles.headerDate}>Interactive Rig</span>
+        <h1 className={styles.mainTitle}>Companion Studio</h1>
         <p className={styles.subtitle}>
-          A blank, structured framework prepared for your upcoming feature implementations.
+          Interactive 3D character engine with real-time physics, conformal eyes, and motion dynamics.
         </p>
       </header>
 
-      {/* Main Canvas Card */}
-      <section className={styles.canvasCard}>
-        <h3>Ready for Custom Modules</h3>
-        <p>
-          All legacy components and assets have been stripped. The architecture now provides clean routing, state persistence, and responsive layouts designed to scale with your ideas.
-        </p>
-        <div className={styles.noteContainer}>
-          <span className={styles.noteTitle}>Clean State</span>
-          <span className={styles.noteText}>
-            No legacy dependencies or hardcoded data remain. New views can be added directly into the router.
-          </span>
+      {/* 3D Viewport */}
+      <section className={styles.viewportCard}>
+        <CompanionScene
+          expression={activeExpr}
+          animation={activeAnim}
+          height="310px"
+          interactive={true}
+        />
+        <div className={styles.viewportFooter}>
+          <span className={styles.footerHint}>Drag horizontally to rotate 360°</span>
         </div>
       </section>
 
-      {/* Spec Rows */}
-      <section className={styles.grid}>
-        <div className={styles.featureCard}>
-          <Image size={20} className={styles.featureIcon} strokeWidth={1.8} />
-          <div className={styles.featureContent}>
-            <div className={styles.featureTitle}>Asset Slot Ready</div>
-            <div className={styles.featureDesc}>
-              Ready for your custom icon file at assets/icon.png.
-            </div>
-          </div>
+      {/* Expression Controls */}
+      <section className={styles.group}>
+        <span className={styles.groupCaption}>Eye Expressions</span>
+        <div className={styles.chipGrid}>
+          {EXPRESSION_LIST.map((expr) => (
+            <button
+              key={expr.key}
+              type="button"
+              className={`${styles.controlChip} ${
+                activeExpr === expr.key ? styles.controlChipActive : ''
+              }`}
+              onClick={() => setActiveExpr(expr.key)}
+            >
+              <span className={styles.chipIcon}>{expr.icon}</span>
+              <span>{expr.name}</span>
+            </button>
+          ))}
         </div>
+      </section>
 
-        <div className={styles.featureCard}>
-          <Cpu size={20} className={styles.featureIcon} strokeWidth={1.8} />
-          <div className={styles.featureContent}>
-            <div className={styles.featureTitle}>Performance Baseline</div>
-            <div className={styles.featureDesc}>
-              Lightweight bundle with sub-second initialization and native viewport handling.
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.featureCard}>
-          <Layers size={20} className={styles.featureIcon} strokeWidth={1.8} />
-          <div className={styles.featureContent}>
-            <div className={styles.featureTitle}>Component Hierarchy</div>
-            <div className={styles.featureDesc}>
-              Apple-grade grouped surfaces and typography tokens defined in the root stylesheet.
-            </div>
-          </div>
+      {/* Animation Controls */}
+      <section className={styles.group}>
+        <span className={styles.groupCaption}>Motion Animations</span>
+        <div className={styles.chipGrid}>
+          {ANIMATION_LIST.map((anim) => (
+            <button
+              key={anim.key}
+              type="button"
+              className={`${styles.controlChip} ${
+                activeAnim === anim.key ? styles.controlChipActive : ''
+              }`}
+              onClick={() => setActiveAnim(anim.key)}
+            >
+              <span>{anim.name}</span>
+            </button>
+          ))}
         </div>
       </section>
     </div>
