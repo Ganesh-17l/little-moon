@@ -15,20 +15,31 @@ const AuthModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  const normalizeIdentifier = (val) => {
+    const trimmed = (val || '').trim().toLowerCase();
+    return trimmed.includes('@') ? trimmed : `${trimmed}@littlemoon.app`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setSuccessMessage(null);
     setLoading(true);
 
+    const resolvedEmail = normalizeIdentifier(email);
+
     try {
       if (mode === 'signin') {
-        await signIn(email, password);
+        await signIn(resolvedEmail, password);
         onClose();
       } else {
-        await signUp(email, password, displayName || 'Little Moon User');
-        setSuccessMessage('Registration submitted. Please sign in with your credentials.');
-        setMode('signin');
+        const data = await signUp(resolvedEmail, password, displayName || 'Little Moon User');
+        if (data?.session) {
+          onClose();
+        } else {
+          setSuccessMessage('Account created! Please sign in with your ID.');
+          setMode('signin');
+        }
       }
     } catch (err) {
       console.error('Auth action error:', err);
@@ -108,15 +119,17 @@ const AuthModal = ({ isOpen, onClose }) => {
 
           <div className={styles.inputGroup}>
             <label htmlFor="auth-email" className={styles.label}>
-              Email Address
+              Account ID or Email
             </label>
             <div className={styles.inputWrapper}>
               <Mail size={16} className={styles.inputIcon} />
               <input
                 id="auth-email"
-                type="email"
+                type="text"
+                autoCapitalize="none"
+                autoCorrect="off"
                 required
-                placeholder="name@example.com"
+                placeholder="e.g. sister or brother@example.com"
                 className={styles.input}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
