@@ -3,12 +3,10 @@ const STORAGE_KEY = 'little_moon_v2';
 const initialData = {
   user: {
     name: 'Little Moon',
-    avatar: '🌙',
     isSetupComplete: true,
   },
   settings: {
-    theme: 'dark',
-    soundEnabled: true,
+    theme: 'system',
     notificationsEnabled: false,
   },
   modules: [],
