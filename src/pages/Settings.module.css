@@ -103,6 +103,34 @@
   border-radius: var(--radius-full);
 }
 
+.badgeRole {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-midnight);
+  background: rgba(40, 43, 74, 0.09);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+}
+
+.actionRowButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: none;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.actionRowButton:hover {
+  background: var(--color-surface-hover);
+}
+
 .dangerButton {
   width: 100%;
   display: flex;

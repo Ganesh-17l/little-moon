@@ -65,6 +65,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Security & Privacy: Never cache Supabase API, Auth, Realtime, or Edge Function requests
+  if (
+    url.hostname.includes('supabase.co') ||
+    url.pathname.startsWith('/rest/v1') ||
+    url.pathname.startsWith('/auth/v1') ||
+    url.pathname.startsWith('/functions/v1') ||
+    url.pathname.startsWith('/realtime/v1')
+  ) {
+    return;
+  }
+
   // 1. Navigation requests (HTML documents for SPA routes like /memories, /levels, /home)
   if (request.mode === 'navigate') {
     event.respondWith(

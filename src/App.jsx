@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
+import { AuthProvider } from './context/AuthContext';
 import Layout from './components/Layout';
 import UpdatePrompt from './components/UpdatePrompt';
 import Home from './pages/Home';
@@ -23,12 +24,14 @@ function AppRoutes() {
 
 function App() {
   return (
-    <AppProvider>
-      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <UpdatePrompt />
-        <AppRoutes />
-      </Router>
-    </AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <UpdatePrompt />
+          <AppRoutes />
+        </Router>
+      </AppProvider>
+    </AuthProvider>
   );
 }
 
